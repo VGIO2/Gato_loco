@@ -24,7 +24,7 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#">Inicio</a></li>
-					<li><a href="#">Historial</a></li>
+					<li><a href="#" id="btn-historial">Historial</a></li>
 				</ul>
 			</div>
 		</div>
@@ -55,7 +55,8 @@
 </section>
 <!------------------------------------------------JUEGO-->
 <section id="juego">
-   <div class="container">
+  <div class="content">
+      <div class="container">
       <div id="gameboard">
             
 			    <div class="row">
@@ -74,8 +75,10 @@
 			        <div class="square"></div>
 			    </div>
       </div>
-       
    </div>
+  </div>
+   
+
 </section>
 
 
@@ -85,6 +88,17 @@
 	<div class="content">
 		<div class="container">
 			<h2>Historial</h2>
+			    <ul class="list-group" id="lista-juegos"></ul>
+		</div>
+	</div>
+</section>
+<!-----------------------------------HISTDETALLER-->
+
+<section id="historial">
+	<div class="content">
+		<div class="container">
+			<h2>Historial Detalle</h2>
+			    <ul class="list-group" id="lista-comentarios"></ul>
 		</div>
 	</div>
 </section>
