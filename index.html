@@ -3,6 +3,8 @@
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/main.css">
 	<meta charset="UTF-8">
@@ -26,6 +28,7 @@
 					<li><a href="#">Inicio</a></li>
 					<li><a href="#" id="btn-historial">Historial</a></li>
 				</ul>
+				<ul id="lista-usuarios"></ul>
 			</div>
 		</div>
 	</nav>
@@ -35,8 +38,8 @@
 	<div class="content">
 		<div class="container">
 
-			<h1>Bienvenido a Gato Loco!</h1>
-			<button id="btn-saludo">Iniciar juego</button>
+			<h1 class="come">Bienvenido a Gato Loco!</h1>
+			<button class="btn btn-danger btn-lg" id="btn-saludo">Iniciar juego</button>
 
 		</div>
 	</div>
@@ -45,10 +48,10 @@
 <section id="nombres">
 	<div class="content">
 		<div class="container">
-			<p>Ingrese el nombre del jugador 1 <input class="form-control" type="text"></p>
-			<p>Ingrese el nombre del jugador 2 <input class="form-control" type="text"></p>
+			<p class="name_j">Ingrese el nombre del jugador 1 <input class="form-control" type="text"></p>
+			<p class="name_j">Ingrese el nombre del jugador 2 <input class="form-control" type="text"></p>
 			<p class="text-center">
-				<button id="btn-nombres">Comenzar</button>
+				<button class="btn btn-warning btn-lg" id="btn-nombres">Comenzar</button>
 			</p>
 		</div>
 	</div>
@@ -98,7 +101,7 @@
 			<ul class="list-group" id="lista-comentarios"></ul>
 			<input id="name" type="text" class="form-control">
 			<textarea name="content" id="content" cols="30" rows="10" class="form-control"></textarea>
-			<button id="btn-comentar">Comentar</button>
+			<button class="btn btn-warning btn-lg" id="btn-comentar">Comentar</button>
 		</div>
 	</div>
 </section>

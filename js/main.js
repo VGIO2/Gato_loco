@@ -9,21 +9,21 @@ $('#btn-nombres').on('click', function(){
         
         var squareSelected = $(this);
         
-        if(squareSelected.hasClass('ex')|| squareSelected.hasClass('oh')){
+        if(squareSelected.hasClass('fa fa-times')|| squareSelected.hasClass('fa fa-circle-o')){
            alert('Este casillero ya esta lleno, escoja otro');
             
         }else{
             if(player===1){
-                squareSelected.addClass('ex');
-                if(whoWin('ex')){
+                squareSelected.addClass('fa fa-times');
+                if(whoWin('fa fa-times')){
                     alert('Felicidades'+player+'gano');
                 }else{
                     player = 2;
                 }
                 
             }else{
-                squareSelected.addClass('oh');
-                if(whoWin('oh')){
+                squareSelected.addClass('fa fa-circle-o');
+                if(whoWin('fa fa-circle-o')){
                     alert('Felicidades'+player+'gano');
                 }else{
                     player = 1;
