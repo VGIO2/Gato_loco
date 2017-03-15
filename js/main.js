@@ -1,28 +1,64 @@
 $(document).ready(init);
 
 
-$('#btn-nombres').on('click', function(){
+$('#btn-nombres').on('click', function(){ 
     
     var player = 1;
     
     $('.square').on('click',function(event){
         
         var squareSelected = $(this);
+        
         if(squareSelected.hasClass('ex')|| squareSelected.hasClass('oh')){
-           alert('Este casillero ya esta lleno, escoja otro'); 
+           alert('Este casillero ya esta lleno, escoja otro');
+            
         }else{
             if(player===1){
                 squareSelected.addClass('ex');
-                player = 2;
+                if(whoWin('ex')){
+                    alert('Felicidades'+player+'gano');
+                }else{
+                    player = 2;
+                }
+                
             }else{
                 squareSelected.addClass('oh');
-                player = 1;
+                if(whoWin('oh')){
+                    alert('Felicidades'+player+'gano');
+                }else{
+                    player = 1;
+                }
             }
         }
     });
-    
-    
 });
+
+function whoWin(symbol){
+    if ($('.sq1').hasClass(symbol) && $('.sq2').hasClass(symbol) && $('.sq3').hasClass(symbol)){
+     return true;   
+    }else if($('.sq4').hasClass(symbol) && $('.sq5').hasClass(symbol) && $('.sq6').hasClass(symbol)){
+        return true;
+    } else if ($('.sq7').hasClass(symbol) && $('.sq8').hasClass(symbol) && $('.sq9').hasClass(symbol)){
+        return true;
+    }else if ($('.sq1').hasClass(symbol) && $('.sq4').hasClass(symbol) && $('.sq7').hasClass(symbol)){
+     return true;   
+    }else if($('.sq2').hasClass(symbol) && $('.sq5').hasClass(symbol) && $('.sq8').hasClass(symbol)){
+        return true;
+    } else if ($('.sq3').hasClass(symbol) && $('.sq6').hasClass(symbol) && $('.sq9').hasClass(symbol)){
+        return true;
+    }else if ($('.sq1').hasClass(symbol) && $('.sq5').hasClass(symbol) && $('.sq9').hasClass(symbol)){
+        return true;
+    }else if ($('.sq3').hasClass(symbol) && $('.sq5').hasClass(symbol) && $('.sq7').hasClass(symbol)){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+
+
+
+
 
 var currentSection = null;
 var currentGameID;
@@ -40,8 +76,7 @@ function init() {
 	TweenMax.from($('#saludo h1'), 1, {marginBottom: '0px', ease: Elastic.easeOut});
 }
 
-function onClickBtnItemJuego()
-{
+function onClickBtnItemJuego(){
 	var idGame = $(this).parent().data('idgame');
 	console.log(idGame);
 	gotoSection('historial-detalle');
@@ -63,16 +98,14 @@ function onClickBtnHistorial(evt) {
 	gotoSection('historial');
 	getHistorial();
 }
-function onClickBtnComentar()
-{
+function onClickBtnComentar(){
 	enviarComentario(currentGameID, $('#name').val(), $('#content').val());
 }
 
 
 
 
-function enviarComentario(_idGame, _name, _content)
-{
+function enviarComentario(_idGame, _name, _content){
 	$.ajax({
 		url:'http://test-ta.herokuapp.com/games/'+_idGame+'/comments',
 		type:'POST',
@@ -101,8 +134,7 @@ function getHistorial() {
 	});
 }
 
-function getSingleGame(_idGame)
-{
+function getSingleGame(_idGame){
 	$.ajax({
 		url: 'http://test-ta.herokuapp.com/games/' + _idGame,
 		type:'GET'
@@ -111,8 +143,7 @@ function getSingleGame(_idGame)
 	});
 }
 
-function getComentarios(_idGame)
-{
+function getComentarios(_idGame){
 	$.ajax({
 		url: 'http://test-ta.herokuapp.com/games/'+_idGame+'/comments',
 		type:'GET'
@@ -122,8 +153,7 @@ function getComentarios(_idGame)
 	});
 }
 
-function dibujarComentarios(_datos)
-{
+function dibujarComentarios(_datos){
 	var lista = $('#lista-comentarios');
 	lista.empty();
 	for(var i in _datos)
@@ -133,7 +163,7 @@ function dibujarComentarios(_datos)
 	}
 }
 
-function dibujarHistorial(_datos) {
+/*function dibujarHistorial(_datos) {
 	//console.log(_datos);
 	var lista = $('#lista-juegos');
 
@@ -143,7 +173,7 @@ function dibujarHistorial(_datos) {
 		var html = '<li data-idgame="'+ _datos[i].id +'" class="list-group-item">' + _datos[i].winner_player + ' le gano a '+ _datos[i].loser_player +' en ' + _datos[i].number_of_turns_to_win + ' movimientos <button class="btn">Comentar</button></li>';
 		lista.append(html);
 	}
-}
+}*/
 
 
 
