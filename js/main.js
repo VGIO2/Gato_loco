@@ -163,7 +163,7 @@ function dibujarComentarios(_datos){
 	}
 }
 
-/*function dibujarHistorial(_datos) {
+function dibujarHistorial(_datos) {
 	//console.log(_datos);
 	var lista = $('#lista-juegos');
 
@@ -173,7 +173,7 @@ function dibujarComentarios(_datos){
 		var html = '<li data-idgame="'+ _datos[i].id +'" class="list-group-item">' + _datos[i].winner_player + ' le gano a '+ _datos[i].loser_player +' en ' + _datos[i].number_of_turns_to_win + ' movimientos <button class="btn">Comentar</button></li>';
 		lista.append(html);
 	}
-}*/
+}
 
 
 
